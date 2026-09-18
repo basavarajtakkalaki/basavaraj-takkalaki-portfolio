@@ -284,27 +284,6 @@ a:focus {
     box-shadow: 0 0 30px rgba(0,0,0,.15);
 }
 
-.hero .hero-initials {
-    width: 450px;
-    height: 450px;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 10px solid rgba(255,255,255,.15);
-    background: linear-gradient(135deg, #9b1c31 0%, #ef233c 52%, #ff6b6b 100%);
-    box-shadow: 0 0 30px rgba(0,0,0,.15);
-}
-
-.hero .hero-initials span {
-    color: #ffffff;
-    font-size: 120px;
-    font-weight: 700;
-    letter-spacing: 8px;
-}
-
 .about {
     position: relative;
     padding: 90px 0;
