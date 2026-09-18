@@ -1,9 +1,9 @@
-/*******************************/
+﻿/*******************************/
 /********* General CSS *********/
 /*******************************/
 body {
     color: #797979;
-    background: #fafdff;
+    background: #ffffff;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -24,7 +24,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: #159bd7;
+    color: #EF233C;
     outline: none;
     text-decoration: none;
 }
@@ -44,20 +44,20 @@ a:focus {
     font-weight: 600;
     letter-spacing: 1px;
     color: #ffffff;
-    background: #159bd7;
+    background: #EF233C;
     border: 2px solid transparent;
     border-radius: 0;
-    box-shadow: inset 0 0 0 50px #159bd7;
+    box-shadow: inset 0 0 0 50px #EF233C;
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
 }
 
 .btn:hover {
-    color: #159bd7;
+    color: #EF233C;
     background: transparent;
-    box-shadow: inset 0 0 0 0 #159bd7;
-    border-color: #159bd7;
+    box-shadow: inset 0 0 0 0 #EF233C;
+    border-color: #EF233C;
 }
 
 #loader {
@@ -87,7 +87,7 @@ a:focus {
     width: 45px;
     height: 45px;
     border: 5px solid #dddddd;
-    border-top: 5px solid #159bd7;
+    border-top: 5px solid #EF233C;
     border-radius: 50%;
     animation: spin 2s linear infinite;
 }
@@ -168,7 +168,7 @@ a:focus {
     }
 
     .navbar.nav-sticky .navbar-brand {
-        color: #159bd7;
+        color: #EF233C;
     }
 
     .navbar-light .navbar-nav .nav-link,
@@ -191,7 +191,7 @@ a:focus {
 
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
     .navbar-light.nav-sticky .navbar-nav .nav-link.active {
-        color: #159bd7;
+        color: #EF233C;
     }
 }
 
@@ -202,7 +202,7 @@ a:focus {
     }
 
     .navbar .navbar-brand {
-        color: #159bd7;
+        color: #EF233C;
     }
 
     .navbar .navbar-nav {
@@ -224,40 +224,12 @@ a:focus {
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(120deg, rgba(8, 105, 166, .98), rgba(21, 155, 215, .95), rgba(87, 210, 244, .93));
+    background: linear-gradient(rgba(239, 35, 60, .95), rgba(239, 35, 60, .95));
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     isolation: isolate;
-    animation: heroColorShift 12s ease-in-out infinite alternate;
-}
-
-.hero::before,
-.hero::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.hero::before {
-    width: 520px;
-    height: 520px;
-    top: -260px;
-    right: 8%;
-    border: 1px solid rgba(255,255,255,.28);
-    box-shadow: 0 0 0 35px rgba(255,255,255,.07), 0 0 0 70px rgba(255,255,255,.04);
-    animation: orbitSlide 14s ease-in-out infinite;
-}
-
-.hero::after {
-    width: 180px;
-    height: 180px;
-    left: 46%;
-    bottom: -100px;
-    background: rgba(255,255,255,.12);
-    animation: floatSlide 8s ease-in-out infinite;
+    animation: heroSlide 9s ease-in-out infinite alternate;
 }
 
 .hero .container-fluid {
@@ -267,7 +239,7 @@ a:focus {
 .hero .hero-content {
     position: relative;
     padding: 0 60px 60px 60px;
-    animation: contentSlide 800ms ease-out both;
+    animation: slideInLeft 900ms ease-out both;
 }
 
 .hero .hero-text p {
@@ -313,38 +285,43 @@ a:focus {
     border-radius: 50%;
     border: 10px solid rgba(255,255,255,.15);
     box-shadow: 0 0 30px rgba(0,0,0,.15);
-    animation: imageSlide 900ms 120ms ease-out both;
-    transition: transform .45s ease, box-shadow .45s ease;
+    animation: slideInRight 900ms 120ms ease-out both;
+    transition: transform .45s ease;
 }
 
 .hero .hero-image img:hover {
-    transform: scale(1.03) rotate(1deg);
-    box-shadow: 0 20px 45px rgba(0, 50, 90, .3);
+    transform: scale(1.03);
 }
 
-@keyframes contentSlide {
-    from { opacity: 0; transform: translateX(-34px); }
-    to { opacity: 1; transform: translateX(0); }
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-42px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-@keyframes imageSlide {
-    from { opacity: 0; transform: translateX(34px) scale(.94); }
-    to { opacity: 1; transform: translateX(0) scale(1); }
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(42px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
-@keyframes floatSlide {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(70px, -35px) rotate(25deg); }
-}
-
-@keyframes orbitSlide {
-    0%, 100% { transform: translateX(0) rotate(0deg); }
-    50% { transform: translateX(-90px) rotate(12deg); }
-}
-
-@keyframes heroColorShift {
-    0% { filter: saturate(1); }
-    100% { filter: saturate(1.15) brightness(1.04); }
+@keyframes heroSlide {
+    0% {
+        background-position: 45% center;
+    }
+    100% {
+        background-position: 55% center;
+    }
 }
 
 .about {
@@ -372,7 +349,7 @@ a:focus {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #159bd7;
+    color: #EF233C;
     text-transform: uppercase;
 }
 
@@ -392,7 +369,7 @@ a:focus {
 .service {
     position: relative;
     padding: 90px 0 60px 0;
-    background: #f0faff;
+    background: #f8f9fa;
 }
 
 .service .service-item {
@@ -416,7 +393,7 @@ a:focus {
     width: 70px;
     height: 70px;
     margin-right: 25px;
-    background: #159bd7;
+    background: #EF233C;
     color: #ffffff;
     border-radius: 50%;
     font-size: 28px;
@@ -465,7 +442,7 @@ a:focus {
     top: 0;
     width: 16px;
     height: 16px;
-    border: 2px solid #159bd7;
+    border: 2px solid #EF233C;
     border-radius: 50%;
     background: #ffffff;
 }
@@ -497,7 +474,7 @@ a:focus {
 .timeline-date {
     font-weight: 700;
     letter-spacing: 1px;
-    color: #159bd7;
+    color: #EF233C;
     margin-bottom: 12px;
 }
 
@@ -522,7 +499,7 @@ a:focus {
 .portfolio {
     position: relative;
     padding: 90px 0;
-    background: #f0faff;
+    background: #f8f9fa;
 }
 
 .portfolio-wrap {
@@ -605,7 +582,7 @@ a:focus {
     margin: 5px 0 0 0;
     padding: 0;
     list-style-type: none;
-    color: #159bd7;
+    color: #EF233C;
 }
 
 .footer {
@@ -725,17 +702,6 @@ a:focus {
 
     .service .service-icon {
         margin: 0 0 20px 0;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
     }
 }
 
